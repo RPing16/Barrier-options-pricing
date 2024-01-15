@@ -25,11 +25,11 @@
 5.  **買賣權差異**
   -  選擇權價值計算方式不同
 6.  **如何驗證歐式選擇權計算是否正確**
-  -  透過障礙選擇權組合是否等價陽春歐式選擇權(以Black-Scholes model計算)
-    -  上出局call + 上入局call = 陽春call
-    -  上出局put + 上入局put = 陽春put
-    -  下出局call + 下入局call = 陽春call
-    -  下出局put + 下入局put = 陽春put
+  - 透過障礙選擇權組合是否等價陽春歐式選擇權(以Black-Scholes model計算)
+    - 上出局call + 上入局call = 陽春call
+    - 上出局put + 上入局put = 陽春put
+    - 下出局call + 下入局call = 陽春call
+    - 下出局put + 下入局put = 陽春put
   - 以數學方式推導上述等式(以上出局call + 上入局call = 陽春call為例)
     -  上出局call收益 =  { max(St - K, 0) if St < H, 0 if St >= H }
     -  上入局call收益 =  { 0 if St < H, max(St - K, 0) if St >= H }
@@ -41,3 +41,8 @@
 8.  **CRR收斂成鋸齒狀**
   -  原因 : 使用二元樹(CRR)計算障礙價格時，有效障礙價格不一定能剛好切在樹的節點上
   -  修正 : 改使用三元樹，相比二元樹，三元樹多一個自由度可以去控制樹擴張的大小，使每一期都有一個節點剛好落在有效障礙價格上
+
+## Barrier options - Monte-Carlo
+透過蒙地卡羅模擬股價路徑進行障礙選擇權定價
+### code重點說明
+1.  **與CRR model相比，額外需要『股票報酬率』這個參數**
